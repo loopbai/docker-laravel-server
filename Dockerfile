@@ -21,7 +21,7 @@ RUN apk add --no-cache \
 RUN mkdir -p /var/www/laravel-app && \
     sed -i 's/\/var\/www\/html/\/var\/www\/laravel-app\/public/g' \
         /etc/nginx/conf.d/default.conf && \
-    chown -R www-data:www-data /var/www/app
+    chown -R www-data:www-data /var/www/laravel-app
 
 WORKDIR /var/www/laravel-app
 
