@@ -18,10 +18,8 @@ RUN apk add --no-cache \
         libpng-dev \
         ;
 
-RUN mkdir -p /var/www/laravel-app && \
-    sed -i 's/\/var\/www\/html/\/var\/www\/laravel-app\/public/g' \
-        /etc/nginx/conf.d/default.conf && \
-    chown -R www-data:www-data /var/www/laravel-app
+COPY conf/default.conf /etc/nginx/conf.d/default.conf
+RUN mkdir -p /var/www/laravel-app && chown -R www-data:www-data /var/www/laravel-app
 
 WORKDIR /var/www/laravel-app
 
